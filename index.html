@@ -16,11 +16,17 @@
 			{number:3, name: 'Venusaur'}
 		];
 
-		class  PokeRows extends React.Component{
-			render() {
+		class  PokeAvatar extends React.Component{
+			render(){
 				var url = `https://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;			
+				return <img src={url}/>
+			}
+		};
+
+		class  PokeRows extends React.Component{
+			render() {	
 				return <div>
-				<img src={url}/>
+				<PokeAvatar number={this.props.number}/>
 				{this.props.name}
 				</div>
 			}
