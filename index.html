@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Curso Platzi - React.js</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 	<section id="container"></section>
@@ -19,13 +20,13 @@
 		class  PokeAvatar extends React.Component{
 			render(){
 				var url = `https://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;			
-				return <img src={url}/>
+				return <img src={url} className='avatar'/>
 			}
 		};
 
 		class  PokeRows extends React.Component{
 			render() {	
-				return <div>
+				return <div className="pokerow">
 				<PokeAvatar number={this.props.number}/>
 				{this.props.name}
 				</div>
@@ -37,16 +38,7 @@
 		React.render(
 		 	<PokeRows name={pokemon.name} number={pokemon.number}/>,
 		 	document.getElementById('container')
-		);	
-
-		pokemon2 = pokemons[1];
-
-		setTimeout(() => {
- 			React.render(
-			 	<PokeRows name={pokemon2.name} number={pokemon2.number}/>,
-			 	document.getElementById('container')
-			);
- 		}, 3000);
+		);
 
 	</script>
 	</body>
