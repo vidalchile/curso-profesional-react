@@ -9,22 +9,39 @@
 	<script src="http://fb.me/react-0.13.3.js"></script>
 	<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 	<script type="text/jsx;harmony=true">
-		class HelloWorldComponent extends React.Component{
+		
+		var pokemons = [
+			{number:1, name:'Bulbasaur'},
+			{number:2, name:'Ivysaur'},
+			{number:3, name: 'Venusaur'}
+		];
+
+		class  PokeRows extends React.Component{
 			render() {
-				return <h1>Hola {this.props.name} estas en el nivel: {this.props.number}</h1>
+				var url = `https://veekun.com/dex/media/pokemon/main-sprites/x-y/${this.props.number}.png`;			
+				return <div>
+				<img src={url}/>
+				{this.props.name}
+				</div>
 			}
 		};
 
-		HelloWorldComponent.propTypes = {
-			name: React.PropTypes.string,
-			nivel: React.PropTypes.number
-		};
+		var pokemon = pokemons[0];
+			
+		React.render(
+		 	<PokeRows name={pokemon.name} number={pokemon.number}/>,
+		 	document.getElementById('container')
+		);	
 
-		React.render(<HelloWorldComponent name="Goku" number={2} />, document.getElementById('container'));
+		pokemon2 = pokemons[1];
 
-		/*setTimeout(() => {
-			React.render(<HelloWorldComponent name="Goku Super Saiyan" />, document.getElementById('container'));
-		}, 3000);*/
+		setTimeout(() => {
+ 			React.render(
+			 	<PokeRows name={pokemon2.name} number={pokemon2.number}/>,
+			 	document.getElementById('container')
+			);
+ 		}, 3000);
+
 	</script>
 	</body>
 </html>
