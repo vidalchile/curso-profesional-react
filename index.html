@@ -9,15 +9,16 @@
 	<script src="http://fb.me/react-0.13.3.js"></script>
 	<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 	<script type="text/jsx;harmony=true">
-		var HelloWorldComponent = React.createClass({
-			propType: {
-				name: React.PropTypes.string,
-				nivel: React.PropTypes.number
-			},
-			render: function() {
-				return <h1>Hola {this.props.name} estas en el nivel: {this.props.number}¡</h1>
+		class HelloWorldComponent extends React.Component{
+			render() {
+				return <h1>Hola {this.props.name} estas en el nivel: {this.props.number}</h1>
 			}
-		});
+		};
+
+		HelloWorldComponent.propTypes = {
+			name: React.PropTypes.string,
+			nivel: React.PropTypes.number
+		};
 
 		React.render(<HelloWorldComponent name="Goku" number={2} />, document.getElementById('container'));
 
