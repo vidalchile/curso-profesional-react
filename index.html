@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Curso Platzi - React.js</title>
+	</head>
+	<body>
+	<section id="container"></section>
+	<script src="http://fb.me/react-0.13.3.js"></script>
+	<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
+	<script type="text/jsx;harmony=true">
+		class HelloWorldComponent extends React.Component{
+			render() {
+				return <h1>Hola {this.props.name}¡</h1>
+			}
+		};
+
+		React.render(<HelloWorldComponent name="Goku" />, document.getElementById('container'));
+
+		setTimeout(() => {
+			React.render(<HelloWorldComponent name="Goku Super Saiyan" />, document.getElementById('container'));
+		}, 3000);
+	</script>
+	</body>
+</html>
