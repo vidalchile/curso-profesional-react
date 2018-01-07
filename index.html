@@ -9,17 +9,21 @@
 	<script src="http://fb.me/react-0.13.3.js"></script>
 	<script src="http://fb.me/JSXTransformer-0.13.3.js"></script>
 	<script type="text/jsx;harmony=true">
-		class HelloWorldComponent extends React.Component{
-			render() {
-				return <h1>Hola {this.props.name}¡</h1>
+		var HelloWorldComponent = React.createClass({
+			propType: {
+				name: React.PropTypes.string,
+				nivel: React.PropTypes.number
+			},
+			render: function() {
+				return <h1>Hola {this.props.name} estas en el nivel: {this.props.number}¡</h1>
 			}
-		};
+		});
 
-		React.render(<HelloWorldComponent name="Goku" />, document.getElementById('container'));
+		React.render(<HelloWorldComponent name="Goku" number={2} />, document.getElementById('container'));
 
-		setTimeout(() => {
+		/*setTimeout(() => {
 			React.render(<HelloWorldComponent name="Goku Super Saiyan" />, document.getElementById('container'));
-		}, 3000);
+		}, 3000);*/
 	</script>
 	</body>
 </html>
