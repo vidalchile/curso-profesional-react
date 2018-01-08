@@ -33,10 +33,20 @@
 			}
 		};
 
-		var pokemon = pokemons[0];
-			
+		class PokeTable extends React.Component{
+			render(){
+				return <ul className="poketablet">
+				{
+					this.props.pokemons.map((pokemon) => {
+						return <PokeRows key={pokemon.number} name={pokemon.name} number={pokemon.number} />
+					})
+				}
+				</ul>
+			}
+		};
+
 		React.render(
-		 	<PokeRows name={pokemon.name} number={pokemon.number}/>,
+		 	<PokeTable pokemons={pokemons} />,
 		 	document.getElementById('container')
 		);
 
