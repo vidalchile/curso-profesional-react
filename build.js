@@ -61,8 +61,6 @@ var PokeApp = (function (_React$Component) {
 		_get(Object.getPrototypeOf(PokeApp.prototype), 'constructor', this).call(this, props);
 		this.state = { messages: [] };
 		this.onGrowl = this.onGrowl.bind(this);
-
-		this.pokemons = [{ number: 1, name: 'Bulbasaur' }, { number: 2, name: 'Ivysaur' }, { number: 3, name: 'Venusaur' }];
 	}
 
 	_createClass(PokeApp, [{
@@ -77,10 +75,13 @@ var PokeApp = (function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+
+			var pokemons = [{ number: 1, name: 'Bulbasaur' }, { number: 2, name: 'Ivysaur' }, { number: 3, name: 'Venusaur' }];
+
 			return _react2['default'].createElement(
 				'div',
 				null,
-				_react2['default'].createElement(_PokeTable2['default'], { pokemons: this.pokemons, onGrowl: this.onGrowl }),
+				_react2['default'].createElement(_PokeTable2['default'], { pokemons: pokemons, onGrowl: this.onGrowl }),
 				_react2['default'].createElement(_PokeChat2['default'], { messages: this.state.messages })
 			);
 		}
@@ -130,7 +131,11 @@ var PokeAvatar = (function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			var url = 'https://veekun.com/dex/media/pokemon/main-sprites/x-y/' + this.props.number + '.png';
-			return _react2['default'].createElement('img', { src: url, className: 'avatar' });
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'avatar-container' },
+				_react2['default'].createElement('img', { src: url, className: 'avatar' })
+			);
 		}
 	}]);
 
@@ -352,7 +357,7 @@ var PokeTable = (function (_React$Component) {
 
 			return _react2['default'].createElement(
 				'ul',
-				{ className: 'poketablet' },
+				{ className: 'poketable' },
 				this.props.pokemons.map(function (pokemon) {
 					return _react2['default'].createElement(_PokeRows2['default'], {
 						key: pokemon.number,

@@ -6,7 +6,7 @@ import PokeRows from './PokeRows';
 
 export default class PokeTable extends React.Component{
 	render(){		
-		return <ul className="poketablet">
+		return <ul className="poketable">
 		{
 			this.props.pokemons.map((pokemon) => {
 				return <PokeRows 
